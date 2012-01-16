@@ -1,0 +1,76 @@
+// @param start		top / bottom
+// @param stop		percentage
+// @param from		from color
+// @param to		to color
+
+@mixin linear-gradient($start, $stop, $from, $to)
+{
+	background-color: $to;
+	background-image: -webkit-linear-gradient($start, $from, $to $stop);
+	background-image:    -moz-linear-gradient($start, $from, $to $stop);
+	background-image:     -ms-linear-gradient($start, $from, $to $stop);
+	background-image:      -o-linear-gradient($start, $from, $to $stop);
+	background-image:         linear-gradient($start, $from, $to $stop);
+	-pie-background:         linear-gradient($start, $from, $to $stop);
+	behavior: url(/js/lib/PIE.htc);
+}
+
+@mixin safari-linear-gradient($start, $stop, $from, $to)
+{
+	@if $start == top { background-image: -webkit-gradient(linear, left $start, left $stop, from($from), to($to)); }
+	@else { background-image: -webkit-gradient(linear, left $start, left 100% - $stop, from($from), to($to)); }
+}
+
+// Usage: @include box-shadow((none | <shadow> [ , <shadow> ]*))
+// Note: The double parentheses are necessary to make the input a list
+
+@mixin box-shadow($shadow)
+{
+	box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	behavior: url("/js/lib/PIE.htc");
+}
+
+@mixin border-radius($radius)
+{
+	border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	behavior: url("/js/lib/PIE.htc");
+}
+
+@mixin transition($transition)
+{
+		transition: $transition;
+		-webkit-transition: $transition;
+		-moz-transition: $transition;
+		-o-transition: $transition;
+}
+
+@mixin transition-delay($transition)
+{
+		transition-delay: $transition;
+		-webkit-transition-delay: $transition;
+		-moz-transition-delay: $transition;
+		-o-transition-delay: $transition;
+}
+
+
+@mixin user-select($select)
+{
+		-webkit-user-select: $select;
+		-khtml-user-select: $select;
+		-moz-user-select: $select;
+		-o-user-select: $select;
+		user-select: $select;
+}
+
+@mixin rotate($angle)
+{
+	transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-moz-transform: rotate($angle);
+	-webkit-transform: rotate($angle);
+	-o-transform: rotate($angle);
+}
